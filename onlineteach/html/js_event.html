@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 事件處理</title>
+    <script>
+        // 用 JS 的程式，動態的註冊事件處理器
+        function init() {
+            var btn = document.getElementById("btn");
+            // btn.onclick = function () {
+            //     alert("Clicked");
+            // };
+            var handler = function () { // 準備一個事件處理器 (對應事件的函式)
+                alert("Clicked");
+            };
+            btn.addEventListener("click", handler);
+            // -----------------------------------------
+            // 使用者點擊按鈕觸發 click 事件
+            // 瀏覽器主種收集和事件有關的資訊，並製造出 event object 物件事件
+            // var eventobj = 事件物件
+            // 呼叫已經註冊的事件處理器 ( 事件處理函式 )
+            // handler(eventobj)
+            var btn = document.getElementById("btn");
+            var handler = function (a) {
+                alert(a.clientX + "," + a.clientY);
+            };
+            btn.addEventListener("click", handler);
+
+        };
+
+
+        // 匿名函式：用來直接當作事件處理器
+        document.addEventListener("keydown", function (b) {
+            alert(b.keyCode);
+        });
+    </script>
+</head>
+
+<body onload="init(a);">
+    <button id="btn">Click</button>
+    <span onclick="alert('');">Text</span>
+</body>
+
+</html>

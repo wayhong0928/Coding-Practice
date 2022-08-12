@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM</title>
+    <!-- <script>
+
+        基礎教學
+
+        alert(window.screen.width + "x" + window.screen.height);
+
+        function change() {
+            var spanobj = document.getElementById("day");
+            spanobj.innerHTML = "html";
+            spanobj.style.color = "red";
+            spanobj.style.fontWeight = "bold";
+            spanobj.style.display = "none";
+        };
+    </script> -->
+
+    <!-- 開合選單 -->
+    <script>
+        function toggle(number) {
+            var menu = document.getElementById("menu" + number);
+            menu.classList.toggle("hide"); // 切換標籤物件 class 的 hide 設定
+            // if (menu.style.display == "none") {
+            //     menu.style.display = "block";
+            // } else {
+            //     menu.style.display = "none";
+            // }
+        };
+    </script>
+    <style>
+        /* 開合選單 */
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 基礎教學 -->
+    <!-- <div>
+        this is a <span id="day">page</span>
+    </div>
+
+    <button onclick="change();">change</button> -->
+
+    <!-- 開合選單 -->
+    <div onclick="toggle(1);">
+        選單的標題
+        <ul id="menu1" class="hide">
+            <li>項目</li>
+            <li>項目</li>
+            <li>項目</li>
+        </ul>
+    </div>
+    <div onclick="toggle(2);">
+        選單的標題
+        <ul id="menu2" class="hide">
+            <li>項目</li>
+            <li>項目</li>
+            <li>項目</li>
+        </ul>
+    </div>
+    <div onclick="toggle(3);">
+        選單的標題
+        <ul id="menu3" class="hide">
+            <li>項目</li>
+            <li>項目</li>
+            <li>項目</li>
+        </ul>
+    </div>
+</body>
+
+</html>

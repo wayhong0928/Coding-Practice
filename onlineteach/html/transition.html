@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=22, initial-scale=1.0">
+    <title>CSS Transition</title>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            box.addEventListener("mouseover", function () {
+                this.style.opacity = 1; // 淡入
+                this.style.backgroundColor = "black";
+            });
+            box.addEventListener("mouseout", function () {
+                this.style.opacity = 0.5; // 淡出
+                this.style.backgroundColor = "black";
+            });
+        };
+    </script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 0.5;
+            /* 監控 opacity 屬性，一旦用JS對opacity進行設定，自動漸變處理 */
+            transition: opacity 2s, background-color 1s;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+
+</body>
+
+</html>

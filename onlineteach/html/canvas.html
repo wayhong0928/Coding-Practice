@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <script>
+        全域變數
+        var cvs, ctx;
+
+        window.onload = function () {
+            // 基本教學
+
+            // cvs = document.getElementById("cvs");
+            // ctx = cvs.getContext("2d"); // Cancas Context Object
+            // // fill 填滿
+            // ctx.fillStyle = "red";
+            // ctx.globalAlpha = 0.5;
+            // ctx.fillRect(50, 50, 100, 100);
+            // // stroke 描邊
+            // ctx.globalAlpha = 1;
+            // ctx.strokeStyle = "blue";
+            // ctx.strokeRect(200, 200, 50, 50);
+            // // path 路徑
+            // ctx.beginPath();
+            // ctx.moveTo(200, 100); // 移動當前所在的位置
+            // ctx.lineTo(300, 300);
+            // ctx.closePath();
+            // ctx.stroke();
+
+            // // 多邊形練習
+            // ctx.beginPath();
+            // ctx.moveTo(300, 300);
+            // ctx.lineTo(400, 350);
+            // ctx.lineTo(250, 400);
+            // ctx.closePath();
+            // ctx.stroke();
+            // ctx.fill();
+        };
+
+        // 影像處理
+        function invertColor() {
+            var pixels = ctx.getImageData(0, 0, cvs.width, cvs.height); //ImageData 物件
+            var data = pixels.data; // 一個像素 = 4bytes  r,g,b,a(0~255)
+            for (var i = 0; i < data.length; i += 4) {
+                data[i] = 255 - data[i]; // 紅色
+                data[i + 1] = 255 - data[i + 1]; // 綠色
+                data[i + 2] = 255 - data[i + 2]; // 藍色
+            };
+            ctx.putImageData(pixels, 0, 0);
+        };
+
+        function loadFile(input) {
+            var file = input.files[0];
+            cvs = document.getElementById('cvs');
+            ctx = cvs.getContext('2d');
+            var src = URL.createObjectURL(file);
+            var img = new Image();
+            img.src = src;
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+            }
+        };
+
+        function saveFile() {
+            var link = document.getElementById("download");
+            link.download = "image.jpg";
+            link.href = cvs.toDataURL("image/jpeg");
+            link.click();
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <input type="file" onchange="loadFile(this)" />
+        <button onclick="saveFile();">儲存檔案</button>
+        <a id="download"></a>
+        <button onclick="invertColor();">顏色的反轉</button>
+    </div>
+    <canvas id="cvs" width="800" height="600" style="border: 1px solid #000000;"></canvas>
+</body>
+
+</html>

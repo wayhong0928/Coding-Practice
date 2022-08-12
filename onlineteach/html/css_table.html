@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 表格樣式 - 詳細介紹</title>
+    <style>
+    table
+    {
+        width: 400px;
+        border-collapse: collapse;
+    }
+    td
+    {
+        border-bottom: 1px solid #888888;
+        padding: 10px;
+    }
+    /* 表格中的第一對 tr */
+    tr:nth-child(1)
+    {
+        background-color: #7788aa;
+        color: #ffffff;
+    }
+    /* 表格中的第偶數對 */
+    tr:nth-child(even)
+    {
+        background-color: #e8e8e8;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>球隊</td>
+            <td>勝場</td>
+            <td>敗場</td>
+        </tr>
+        <tr>
+            <td>樂天桃猿</td>
+            <td>120場</td>
+            <td>0場</td>
+        </tr>
+        <tr>
+            <td>中信兄弟</td>
+            <td>40場</td>
+            <td>80場</td>
+        </tr>
+            <tr>
+                <td>富邦悍將</td>
+                <td>20場</td>
+                <td>100場</td>
+            </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS / JS 控制捲軸</title>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            window.setInterval(scroll, 100);
+
+            function scroll() {
+                box.scrollTop++;
+            }
+        };
+    </script>
+    <style>
+        .box {
+            border: 1px solid #000000;
+            height: 80px;
+            width: 200px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <div>This is a line 1</div>
+        <div>This is a line 2</div>
+        <div>This is a line 3</div>
+        <div>This is a line 4</div>
+        <div>This is a line 5</div>
+        <div>This is a line 6</div>
+        <div>This is a line 7</div>
+        <div>This is a line 8</div>
+        <div>This is a line 9</div>
+        <div>This is a line 10</div>
+        <div>This is a line 11</div>
+    </div>
+
+</body>
+
+</html>
