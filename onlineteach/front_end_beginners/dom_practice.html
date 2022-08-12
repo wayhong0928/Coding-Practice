@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS : HTML DOM 網頁畫面操作</title>
+</head>
+<body>
+    <div>
+        <span onclick="changeToAbout()">about</span>
+        <span onclick="changeToSchool()">school</span>
+    </div>
+    <hr/>
+    <div id="about">大家好，我是威宏</div>
+    <div id="school" style="display: none;">我是中原資管系！曾經是壢商資處科</div>
+    <script>
+        function changeToSchool() {
+            let School = document.querySelector("#school");
+            let about = document.querySelector("#about");
+            about.style.display = "none";
+            School.style.display = "block";
+        }
+        function changeToAbout() {
+            let School = document.querySelector("#school");
+            let about = document.querySelector("#about");
+            about.style.display = "block";
+            School.style.display = "none";
+        }
+    </script>
+</body>
+    <!-- test
+    <style>
+        .text {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    </style> -->
+    <!-- test
+    <h3>HTML DOM 畫面操作</h3>
+    <div id="content">練習網頁畫面的操作</div>
+    <button onclick="change()">點我</button>
+    <script>
+        function change() {
+            // 取得標籤物件
+            let elem = document.querySelector("#content");
+            // 操作標籤物件
+            elem.innerHTML = "對特定的標籤做操作";
+            elem.className = "text";
+            elem.style.fontSize = "30px";
+            elem.style.color = "red";
+        }
+    </script> -->
+</html>
