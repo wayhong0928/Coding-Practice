@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Animation</title>
     <script>
-        function show() {
-            var box = document.getElementById("box");
-            // 取得當前的尺寸設定
-            var styles = window.getComputedStyle(box);
-            var size = styles.getPropertyValue("width"); // return 寬度 = 50px
-            size = parseInt(size);
-            // 產生一個放大的動畫特效
-            var animeId = window.setInterval(function () {
-                // 設定停止條件
-                if (size >= 200) {
-                    // 停止動畫
-                    window.clearInterval(animeId);
-                    return;
-                }
-                // 先調整數值
-                size++;
-                // 把數值放進 box 的 css 設定中，產生實際效果
-                box.style.width = size + "px";
-                box.style.height = size + "px";
-            }, 20); // 每0.02秒執行一次函式
-        };
+      function show() {
+        var box = document.getElementById("box");
+        // 取得當前的尺寸設定
+        var styles = window.getComputedStyle(box);
+        var size = styles.getPropertyValue("width"); // return 寬度 = 50px
+        size = parseInt(size);
+        // 產生一個放大的動畫特效
+        var animeId = window.setInterval(function () {
+          // 設定停止條件
+          if (size >= 200) {
+            // 停止動畫
+            window.clearInterval(animeId);
+            return;
+          }
+          // 先調整數值
+          size++;
+          // 把數值放進 box 的 css 設定中，產生實際效果
+          box.style.width = size + "px";
+          box.style.height = size + "px";
+        }, 20); // 每0.02秒執行一次函式
+      }
     </script>
     <style>
-        .box {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position: fixed;
-            top: 0px;
-            right: 0px;
-        }
+      .box {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="box" class="box" onclick="show();"></div>
-</body>
-
+  </body>
 </html>
