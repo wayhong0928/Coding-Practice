@@ -15,32 +15,32 @@ False
 # 有順序、可動的列表 list
 # 中括號
 
-[3,4,5]
-["hi","hihi"]
+[3, 4, 5]
+["hi", "hihi"]
 
 # 有順序、不可變動的列表 tuple
 # 小括號
 
-(3,4,5)
-("hi","hihi")
+(3, 4, 5)
+("hi", "hihi")
 
 # 集合 set
 # 大括號
 
-{3,4,5}
-{"hi","hihi"}
+{3, 4, 5}
+{"hi", "hihi"}
 
 # 字典 dictionary
 
-{"apple":"蘋果","hi":"嗨"}
+{"apple": "蘋果", "hi": "嗨"}
 
-# 變數 
+# 變數
 # 變數名稱=資料
 
-data=3
+data = 3
 
 # print(資料)
 
 print(3)
 print(True)
-print([1,2,3])
+print([1, 2, 3])
