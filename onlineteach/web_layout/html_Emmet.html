@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Emmet讚 </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emmet讚</title>
     <style>
-        .box {
-            /* fz40 */
-            font-size: 40px;
-        }
+      .box {
+        /* fz40 */
+        font-size: 40px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- . # 建立 class 或 id 的div -->
     <div class="box"></div>
     <div id="box"></div>
-    
+
     <!-- ul>li>p + tab -->
     <!-- * 建立重複tag ul>li*2>p*5 + tab -->
     <ul>
-        <li>
-            <p></p>
-        </li>
+      <li>
+        <p></p>
+      </li>
     </ul>
     <!-- {} ：tag內的文字 -->
     <!-- ul>li*5{list} + tab -->
     <ul>
-        <li>list
-            <p>num</p>
-        </li>
-        <li>list
-            <p>num</p>
-        </li>
-        <li>list
-            <p>num</p>
-        </li>
+      <li>
+        list
+        <p>num</p>
+      </li>
+      <li>
+        list
+        <p>num</p>
+      </li>
+      <li>
+        list
+        <p>num</p>
+      </li>
     </ul>
     <!-- $ 建立編號  @- 編號降冪（要在$之後） -->
     <!-- ul>li*5{list：$@-} + tab -->
     <ul>
-        <li>list : 5</li>
-        <li>list : 4</li>
-        <li>list : 3</li>
-        <li>list : 2</li>
-        <li>list : 1</li>
+      <li>list : 5</li>
+      <li>list : 4</li>
+      <li>list : 3</li>
+      <li>list : 2</li>
+      <li>list : 1</li>
     </ul>
     <!-- 多行同時編輯 按住 alt 後 點下一行  -->
     <!-- div+h1+h2 + tab -->
@@ -53,5 +56,6 @@
     <h2></h2>
     <!-- [] 輸入屬性 -->
     <!-- a[href="www" target="_blank"] + tab-->
-</body>
+    <!-- a[href='#']{link}*6 -->
+  </body>
 </html>
