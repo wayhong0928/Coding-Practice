@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <title>2019 IT鐵人賽 Day22</title>
+    <!-- RWD 試排版 -->
+    <style>
+      #menu_control {
+        position: absolute;
+        z-index: -2;
+        opacity: 0;
+      }
+      .header {
+        height: 50px;
+        background-color: #ccc;
+        position: relative;
+      }
+      .logo {
+        width: 60px;
+        height: 40px;
+        margin-left: 10px;
+      }
+      .logo img {
+        vertical-align: middle;
+        margin-top: 5px;
+      }
+      .menu_btn {
+        width: 40px;
+        height: 40px;
+        background-color: #000;
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+      }
+      .menu_btn span {
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+        display: block;
+        overflow: hidden;
+      }
+      .menu_btn::before {
+        /* 選單的三條橫線垂直置中 */
+        content: "";
+        position: absolute;
+        width: 36px;
+        height: 2px;
+        left: 2px;
+        background-color: #aaa;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        box-shadow: 0px 8px 0px #aaa, 0px -8px 0px #aaa;
+      }
+      nav a {
+        display: block;
+        text-decoration: none;
+        color: #a6e22c;
+        padding: 10px 20px;
+        border-bottom: 1px solid #a6e22c;
+      }
+      #menu_control:checked ~ .header nav {
+        left: 0;
+      }
+
+      img {
+        vertical-align: bottom;
+      }
+      .banner img {
+        width: 100%;
+      }
+      .item-group {
+        width: 100%;
+        max-width: 1400px;
+        margin: auto;
+      }
+      .title {
+        margin: 0 0px 20px;
+        padding: 30px 10px;
+        background-color: #ccc;
+      }
+      .title h2 {
+        text-align: center;
+        font-size: 46px;
+      }
+      .title p {
+        font-size: 22px;
+        text-align: center;
+      }
+      .item {
+        margin: 0 10px 40px;
+      }
+      .item .pic img {
+        width: 100%;
+      }
+      .item .text h3 {
+        font-size: 24px;
+        text-align: center;
+      }
+      .service {
+        margin: 20px 0;
+        background-color: #ffa;
+      }
+      .footer {
+        background-color: #333;
+        color: #aaa;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      @media screen and (max-width: 767px) {
+        nav {
+          width: 80%;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .menu_btn {
+          display: none;
+          height: calc(100vh - 50px);
+          background-color: #282923;
+          position: absolute;
+          top: 50px;
+          left: -100%;
+          transition: 0.5s;
+        }
+        .header {
+          display: flex;
+          justify-content: space-between;
+          background-color: #282923;
+          /* 垂直置中 */
+          align-items: center;
+        }
+        .logo a {
+          display: block;
+          height: 40px;
+        }
+        .logo img {
+          margin-top: 0;
+        }
+        nav {
+          position: relative;
+          display: flex;
+          left: 10px;
+          width: auto;
+          height: auto;
+          top: 0;
+          background-color: transparent;
+        }
+        nav a {
+          border-bottom: none;
+        }
+        .item-group {
+          display: flex;
+        }
+        .service .item {
+          display: flex;
+        }
+        .service .item .pic,
+        .service .item .text {
+          width: 50%;
+          margin: 0;
+        }
+        .service .item .text {
+          display: flex;
+          padding: 0 20px;
+          box-sizing: border-box;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" name="" id="menu_control" />
+    <div class="header">
+      <h1 class="logo">
+        <a href="#"><img src="https://fakeimg.pl/60x40/888/" /></a>
+      </h1>
+      <label for="menu_control" class="menu_btn">
+        <span>選單</span>
+      </label>
+      <nav>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+      </nav>
+    </div>
+
+    <div class="banner">
+      <img src="https://picsum.photos/seed/picsum/1400/500" />
+    </div>
+    <div class="about">
+      <div class="wrap">
+        <div class="title">
+          <h2>關於我們</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste saepe
+            error sit quidem? Ex, doloremque? Adipisci, nesciunt. Nostrum,
+            minima voluptates!
+          </p>
+        </div>
+        <div class="item-group">
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=11" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=12" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=13" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service">
+      <div class="wrap">
+        <div class="item-group">
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=14" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="wrap">
+        <div class="title">
+          <h2>關於我們</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste saepe
+            error sit quidem? Ex, doloremque? Adipisci, nesciunt. Nostrum,
+            minima voluptates!
+          </p>
+        </div>
+        <div class="item-group">
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=15" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=16" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/200/300?random=17" />
+            </div>
+            <div class="text">
+              <h3>title</h3>
+              <p>
+                思路懂得好處一份出生隨便不然中港路，
+                表明我現在幽默相互打造策劃房東不會成果組圖一隻，
+                還會塑膠結合消費者造成當時新聞才是。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">&copy; copyright 2022 by hong</div>
+  </body>
+</html>
