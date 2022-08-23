@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="reset.css" />
+    <title>2019 IT鐵人賽 Day28 Day29</title>
+    <!-- CSS 控制 JQuery 動畫 -->
+    <style>
+      .controller {
+        display: block;
+        padding: 6px 10px;
+        background-color: #000;
+        color: #fff;
+        width: 300px;
+        text-decoration: none;
+        text-align: center;
+      }
+      .text {
+        width: 280px;
+        padding: 20px;
+        background-color: #ccc;
+      }
+
+      .text.close {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="controller controller1">開/關</a>
+    <div class="text text1">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat,
+      repellendus. Tempore, sint? Sint ad illum reprehenderit quaerat!
+      Aspernatur voluptate nostrum repellat iure, provident autem, quam error
+      sunt quae quis ab.
+    </div>
+    <a href="#" class="controller controller2">開/關</a>
+    <div class="text text2">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat,
+      repellendus. Tempore, sint? Sint ad illum reprehenderit quaerat!
+      Aspernatur voluptate nostrum repellat iure, provident autem, quam error
+      sunt quae quis ab.
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        // 盡量避免這種寫法：）
+        $(".controller1").click(function () {
+          $(".text1").toggleClass("close");
+        });
+        $(".controller2").click(function () {
+          $(".text2").toggleClass("close");
+        });
+        // slideToggle or fadeToggle
+      });
+    </script>
+  </body>
+</html>

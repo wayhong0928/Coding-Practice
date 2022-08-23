@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>2019 IT鐵人賽 Day26 Day27</title>
+    <!-- JQuery 入門、事件  day26 + day27 -->
+    <style>
+      .box-a {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        background-color: #aaa;
+      }
+      .box-b {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        background-color: #faa;
+      }
+      .product-title {
+        background-color: #000;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        /* 像button的效果 */
+        cursor: pointer;
+      }
+      .content {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-a"></div>
+    <div class="box-b"></div>
+    <div class="product-title">產品介紹</div>
+    <div class="content">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores nemo
+      dolorem minima enim possimus voluptatum eum ducimus nisi repellat
+      similique, placeat quos sequi fugit! Debitis beatae blanditiis nobis autem
+      eaque.
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        // $("CSS選取器")
+        $(".box-a").click(function () {
+          $(".box-b").toggle();
+        });
+        $(".product-title").click(function () {
+          $(".content").toggle();
+        });
+      });
+    </script>
+  </body>
+</html>
