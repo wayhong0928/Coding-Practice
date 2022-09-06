@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8d21a50c85.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>訂單進度條</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Serif TC", serif;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        background-color: #546377;
+      }
+      .list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .list li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        /* background-color: #fff; */
+        background-image: linear-gradient(9deg, #185a9d, #43cea2);
+        border-radius: 50%;
+        font-weight: 700;
+        position: relative;
+        font-size: 30px;
+        color: #fff;
+        box-shadow: 0px 0px 0px 4px #fff;
+      }
+      .list li .fa-solid {
+        font-size: 60px;
+        margin-bottom: 6px;
+      }
+      .list li + li {
+        margin-left: 100px;
+      }
+      .list li + li::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 5px;
+        background-color: #43cea2;
+        z-index: -1;
+        box-shadow: 0px 0px 0px 3px #fff;
+        top: 0;
+        bottom: 0;
+        left: -100px;
+        margin: auto;
+      }
+      .list li.active ~ li {
+        background-image: linear-gradient(9deg, #999, #ccc);
+      }
+      .list li.active ~ li::before {
+        background-color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <ol class="list">
+      <li><i class="fa-solid fa-comment"></i>收到訂單</li>
+      <li class="active"><i class="fa-solid fa-check"></i>撿貨中</li>
+      <li><i class="fa-solid fa-plane"></i>運送中</li>
+      <li><i class="fa-solid fa-phone"></i>已送達</li>
+    </ol>
+  </body>
+</html>
