@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>時間軸</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Serif TC", serif;
+      }
+      body {
+        background-color: #edece1;
+      }
+      .wrap {
+        width: 960px;
+        margin: auto;
+      }
+      .wrap::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 200px;
+        clear: both;
+      }
+      .timeline {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      .timeline li {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 20px 0;
+        position: relative;
+      }
+      /* 選到奇數 */
+      .timeline li:nth-child(odd) {
+        float: left;
+        padding-right: 100px;
+        clear: both;
+      }
+      /* 選到偶數 */
+      .timeline li:nth-child(even) {
+        float: right;
+        padding-left: 100px;
+        transform: translateY(50%);
+      }
+      /* 時間軸的軸線 */
+      .timeline li:nth-child(odd)::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 1px;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: #ccc;
+      }
+      .timeline li:last-child::after {
+        height: 50%;
+      }
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #aaa;
+        z-index: 2;
+      }
+      .timeline li:nth-child(odd)::before {
+        right: -10px;
+      }
+      .timeline li:nth-child(even)::before {
+        left: -10px;
+      }
+      .timeline a {
+        display: block;
+        text-decoration: none;
+        background-color: #fff;
+        border: 1px solid #aaa;
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px #888;
+      }
+      .timeline a:hover {
+        background-color: #6fa5f6;
+      }
+      .timeline a:hover h2,
+      .timeline a:hover p {
+        color: #fff;
+      }
+      .timeline h2 {
+        color: #333;
+        font-weight: 700;
+      }
+      .timeline p {
+        color: #666;
+        font-weight: 500;
+      }
+      .timeline h2::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        background-color: #aaa;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      /* 橫線 */
+      .timeline li:nth-child(odd) h2::after {
+        right: 0;
+      }
+      .timeline li:nth-child(even) h2::after {
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>金魚都能懂得這個網頁畫面怎麼切 - 金魚都能懂了你還怕學不會嗎 系列</h1>
+      <p>好多當前舉行回答歡迎您全身評論學科讓人主機危機，容量衛生篇。</p>
+      <ul class="timeline">
+        <li>
+          <a href="#">
+            <h2>title1</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+              totam incidunt, delectus labore numquam animi repellat quod
+              laudantium optio harum voluptatem ex architecto, eius, possimus a
+              eaque. Eum, cupiditate labore.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title2</h2>
+            <p>
+              Illum at error dolore beatae voluptate, ex asperiores odio labore
+              ullam modi maxime magni doloribus dolor. Architecto totam, autem
+              minima, repudiandae voluptate explicabo voluptatibus mollitia a
+              dolorem animi magni aliquam.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title3</h2>
+            <p>
+              Nam voluptate aliquid neque sequi aspernatur minima odio
+              exercitationem quae quam eius amet, sed, sunt iusto illum aperiam
+              quod nesciunt nisi praesentium quos dolorum earum facere
+              molestiae. Veniam, nihil velit.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title4</h2>
+            <p>
+              Cumque numquam facilis enim. Labore excepturi nisi ipsa aut fuga
+              id, sed ipsum ipsam, beatae aspernatur autem quae accusamus,
+              officia voluptatum dolorem non explicabo. Quos saepe officiis
+              nihil totam illo.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title5</h2>
+            <p>
+              Excepturi, iure tempore. Eligendi, totam quo eveniet dignissimos
+              repudiandae beatae labore autem quis veritatis adipisci quos
+              reprehenderit doloremque iste recusandae optio obcaecati.
+              Obcaecati illum nobis, sed architecto ipsam dolorum tenetur!
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title6</h2>
+            <p>
+              Veritatis distinctio commodi necessitatibus amet? Ut ipsam sequi
+              molestias nobis at delectus beatae perspiciatis vero aliquam
+              nulla, maiores blanditiis quis doloribus magni maxime obcaecati
+              animi explicabo, qui, quisquam similique. Inventore?
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title7</h2>
+            <p>
+              Possimus, voluptatem unde? Delectus, quas. Alias nam pariatur,
+              veniam neque vitae quaerat dolores modi. Doloremque similique
+              cupiditate et est. Accusantium necessitatibus reiciendis nam est,
+              maxime sit itaque dolorum consequuntur omnis.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title8</h2>
+            <p>
+              Odit, ipsam explicabo fugit ipsum quia facere nihil nisi delectus
+              minima accusamus enim dolor obcaecati doloribus voluptates, rem
+              modi voluptatum, placeat eveniet beatae voluptatibus vitae. Nemo
+              repellendus dignissimos quis eos.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title9</h2>
+            <p>
+              Quis sunt ad numquam fugit quibusdam, qui pariatur maxime fuga?
+              Nisi necessitatibus sed consectetur quia unde maiores officiis
+              tempore porro quam mollitia! Accusantium excepturi aut sapiente
+              officiis aperiam aliquam totam?
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title10</h2>
+            <p>
+              Ut nobis, nam magni dolores tempora animi placeat natus debitis
+              distinctio perferendis harum! Impedit, cumque placeat, soluta
+              inventore necessitatibus aliquam sint expedita possimus distinctio
+              sed perferendis. Enim, porro. Iusto, quis.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title11</h2>
+            <p>
+              Soluta obcaecati, ipsam perferendis fuga accusantium, dignissimos
+              reprehenderit id quos harum corporis facere quia itaque inventore
+              officia laudantium quasi, reiciendis iure architecto. Maiores,
+              facilis. Nihil delectus autem ullam labore eius.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title12</h2>
+            <p>
+              Dicta neque adipisci inventore assumenda aliquid eius sed
+              laboriosam. Possimus saepe aut error numquam facere accusantium ut
+              atque animi, unde voluptatum ipsum perspiciatis quis! Soluta nemo
+              eaque molestias recusandae nam!
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title13</h2>
+            <p>
+              Quos quidem, ratione impedit id voluptatem labore temporibus quam
+              laudantium at ad sed eos quisquam dicta dolores laborum,
+              repellendus vero, perspiciatis modi perferendis! Architecto
+              ducimus, porro odio doloribus consequatur similique?
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title14</h2>
+            <p>
+              Facere accusamus impedit vel minima quaerat illo unde vitae.
+              Exercitationem delectus, ipsam minima esse odit a? Consectetur,
+              quis. Est at necessitatibus accusantium cupiditate repudiandae
+              natus eius earum dolor sint fuga?
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title15</h2>
+            <p>
+              Quasi nisi, temporibus totam libero reiciendis amet molestias
+              adipisci corrupti, exercitationem sed ex quas! Deleniti, magnam
+              incidunt maxime voluptates maiores id, architecto velit
+              dignissimos provident, necessitatibus vel doloremque officia
+              accusamus?
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title16</h2>
+            <p>
+              Error saepe dolor quas praesentium beatae aliquid itaque quibusdam
+              eligendi veritatis soluta distinctio sunt maiores ea laudantium
+              nemo, illum nobis, cum quam. Rem alias totam cupiditate, repellat
+              ad doloremque temporibus.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title17</h2>
+            <p>
+              Quod dolorem corrupti eos voluptate ducimus aliquid architecto
+              itaque saepe nostrum dolores! Eaque nisi exercitationem debitis,
+              ipsam mollitia asperiores consequuntur sequi cumque iusto, sed cum
+              in, temporibus rerum tempora amet.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title18</h2>
+            <p>
+              Similique, illum. Dolorum corporis ipsum inventore quos culpa,
+              tempora dolore necessitatibus? Tempore in tempora eaque inventore
+              nihil expedita maxime minus velit, dignissimos veritatis
+              perferendis quae ipsum quis, voluptatibus sequi harum.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title19</h2>
+            <p>
+              Quidem dolorum ut expedita libero illo itaque, fugit, quam
+              officiis mollitia laborum ipsum assumenda quod id eveniet
+              quibusdam accusamus consectetur repellendus ex dolores nihil
+              aliquam quasi rerum adipisci neque. Delectus.
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h2>title20</h2>
+            <p>
+              Ducimus rerum quasi, natus reprehenderit dolor culpa doloribus
+              odit repellendus tempore. Ad veritatis nulla cumque illum aliquam
+              reiciendis magni et ex provident ut consequuntur, accusamus modi
+              voluptatum officiis aut facilis.
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
