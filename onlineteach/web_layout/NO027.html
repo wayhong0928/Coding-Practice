@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/8d21a50c85.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>拼拼板-重構</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Serif TC", serif;
+      }
+      .container {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .main-header .container {
+        align-items: center;
+      }
+      .banner .container {
+        height: 100%;
+      }
+
+      .section-group {
+        margin: 0;
+      }
+      .force-group {
+        background-color: #eee;
+      }
+
+      /* main title */
+      .main-title {
+        padding: 50px 0;
+        text-align: center;
+      }
+
+      .main-title h1 {
+        width: 100%;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        font-size: 70px;
+        color: #aaa;
+        margin-bottom: 0.5em;
+        display: flex;
+      }
+      .main-title h1::before,
+      .main-title h1::after {
+        content: "";
+        display: block;
+        height: 1px;
+        flex-grow: 1;
+        background-color: #aaa;
+        margin: auto;
+      }
+      .main-title h1::before {
+        margin-right: 1em;
+      }
+      .main-title h1::after {
+        margin-left: 1em;
+      }
+      .main-title .text {
+        width: 600px;
+        margin: auto;
+        box-sizing: border-box;
+      }
+      .main-title .text p {
+        margin-bottom: 1em;
+      }
+      .sec-title h2 {
+        text-align: center;
+        width: 100%;
+        font-size: 32px;
+        color: #333;
+      }
+      .main-header {
+        background-color: #000;
+      }
+
+      .main-header .logo {
+        width: 100px;
+      }
+      .main-header .logo img {
+        width: 100%;
+        vertical-align: middle;
+      }
+      .main-header .main-nav {
+        display: flex;
+        margin: auto;
+      }
+      .main-header .main-nav a {
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 1em;
+        position: relative;
+        transform: translateY(0px);
+        transition: 0.3s;
+      }
+      .main-header .main-nav a:hover {
+        transform: translateY(-5px);
+      }
+      .main-header .main-nav a:after {
+        content: "";
+        position: absolute;
+        /* 一開始都 50% 代表在中間，就看不到畫面 */
+        left: 50%;
+        right: 50%;
+        bottom: -5px;
+        height: 0;
+        border-bottom: 1px solid#fff;
+        transition: 0.3s;
+      }
+      .main-header .main-nav a:hover::after {
+        /* 跑到0%代表最左最右邊，就有線條動畫  */
+        left: 0%;
+        right: 0%;
+      }
+      /* header */
+      .header-search {
+        display: flex;
+      }
+      /* 聚焦的時候不要有框框 */
+      .header-search button:focus,
+      .header-search input:focus {
+        outline: none;
+      }
+      .header-search button {
+        border: none;
+        background-color: #fff;
+        padding: 5px 10px;
+        border-radius: 0 200px 200px 0;
+      }
+      .header-search input {
+        border: none;
+        background-color: #fff;
+        padding: 5px 10px;
+        border-radius: 200px 0 0 200px;
+      }
+      /*  */
+      .banner {
+        width: 100%;
+        height: 700px;
+        background-color: #ccc;
+        /* 漸層 */
+        background: linear-gradient(115deg, #fa0 50%, #ccc 50%, transparent 50%)
+            center center / 100% 100%,
+          url("https://picsum.photos/2000/1500?random=1") right center / auto
+            100%;
+        background-color: #000;
+      }
+
+      .banner-text {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        color: #fff;
+      }
+      .banner-text h1 {
+        font-size: 80px;
+        border-bottom: 1px solid #fff;
+        font-weight: 900;
+        padding-bottom: 0.3em;
+        margin-bottom: 0.3em;
+      }
+      .banner-text h1 small {
+        display: block;
+        font-size: 53px;
+        font-weight: 700;
+      }
+      .banner-text h2 {
+        font-size: 50px;
+        font-weight: 700;
+      }
+      .banner-text p {
+        font-size: 20px;
+        font-weight: 300;
+      }
+      /* fish */
+      .fish {
+        display: flex;
+        width: 1200px;
+        margin: auto;
+        padding-top: 75px;
+      }
+      .fish .item {
+        width: 370px;
+        margin: 0 15px;
+        text-align: center;
+        border: 10px solid #f9cec2;
+        background-color: #fff;
+        border-radius: 20px;
+      }
+      .fish .item .icon {
+        width: 150px;
+        height: 150px;
+        background-color: #fff;
+        margin: -85px auto 0;
+        font-size: 65px;
+        line-height: 150px;
+        border-radius: 50%;
+        color: #f5afac;
+        position: relative;
+      }
+      .fish .item .icon::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-top: 10px solid #f9cec2;
+        border-right: 10px solid #f9cec2;
+        /* 透明 */
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid transparent;
+        /* 扣掉邊框線 */
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        border-radius: 50%;
+        /* 把角度轉正 */
+        transform: rotate(-45deg);
+      }
+      .fish .item .text {
+        padding: 20px 20px 2em;
+      }
+      .fish .item h3 {
+        color: #f5afac;
+      }
+      .fish .item p {
+        color: #ccc;
+      }
+      .fish .item:hover .fa {
+        /* 時間 delay 不斷的搖 來回的搖  */
+        animation: ss 0.1s linear infinite alternate;
+      }
+      @keyframes ss {
+        0% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(10deg);
+        }
+      }
+      /* studen-msg */
+      .studen-msg {
+        display: flex;
+        align-items: center;
+      }
+
+      .studen-msg .item {
+        width: 365px;
+        margin: 20px 15px;
+        display: flex;
+        background-color: #fff;
+        border: 1px solid #888;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+      .studen-msg .item .pic {
+        width: 50%;
+        /* 圖片剛好填滿 */
+        object-fit: cover;
+      }
+      .studen-msg .item .pic img {
+        width: 100%;
+        height: 100%;
+      }
+      .studen-msg .item .text {
+        width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+      .studen-msg .item .text h2 {
+        margin-bottom: 0.4em;
+        font-weight: 700;
+      }
+      .studen-msg .item .text p {
+        font-weight: 400;
+      }
+      .studen-msg .item .text .btn {
+        line-height: 1.5em;
+        border: 1px solid #ccc;
+        padding: 0 1em;
+        align-self: flex-end;
+        text-decoration: none;
+        border-radius: 200px;
+        margin-top: auto;
+        color: #aaa;
+      }
+      .studen-msg .item .text .btn:hover {
+        background-color: #ccc;
+        color: #fff;
+      }
+      /* force */
+      .force {
+        width: 1200px;
+        display: flex;
+        margin: auto;
+      }
+      .force .item {
+        width: 368px;
+        margin: 15px;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid#ccc;
+        transform: translateY(0px);
+        transition: 0.5s;
+      }
+      .force .item img {
+        width: 100%;
+        vertical-align: middle;
+      }
+      .force .item h2 {
+        border-bottom: 1px solid#888;
+        padding-bottom: 0.3em;
+        margin-bottom: 0.4em;
+        font-weight: 700;
+        transition: 0.5s;
+      }
+      .force .item p {
+        line-height: 1.5;
+        font-weight: 500;
+        transition: 0.5s;
+      }
+      .force .item .text {
+        position: relative;
+        padding: 20px;
+      }
+      .force .item .text:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 0;
+        border-top: 50px solid transparent;
+        border-left: 184px solid#fff;
+        border-right: 184px solid#fff;
+        transform: translateY(-100%);
+      }
+      .force .item:hover {
+        transform: translateY(-50px);
+      }
+      .force .item:hover .text {
+        background-image: linear-gradient(0deg, #fb8076, #ffb85d);
+      }
+      .force .item:hover .text::before {
+        border-left: 184px solid#FFB85D;
+        border-right: 184px solid#FFB85D;
+      }
+      .force .item:hover h2 {
+        color: #fff;
+        border-bottom-color: #fff;
+      }
+      .force .item:hover p {
+        color: #fff;
+      }
+      /* footer */
+      .main-footer {
+        width: 100%;
+        padding: 100px 0 0 0;
+        background: linear-gradient(-20deg, #ffaa00 30%, #08c7a5);
+      }
+
+      .footer-item {
+        width: 0;
+        flex-grow: 1;
+        margin: 0 20px;
+      }
+      .footer-item nav {
+        display: flex;
+        flex-direction: column;
+      }
+      .footer-item h4 {
+        font-size: 24px;
+        color: #fff;
+        border-bottom: 1px dotted #fff;
+        margin-bottom: 0.5em;
+        padding-bottom: 0.5em;
+      }
+      .footer-item nav a {
+        color: #fff;
+        line-height: 1.5;
+        text-decoration: none;
+        padding: 5px 0;
+      }
+      .footer-item nav a:hover {
+        color: #fa0;
+      }
+      .footer-subs {
+        display: flex;
+        flex-direction: column;
+      }
+      .footer-subs form {
+        display: flex;
+        width: 100%;
+        margin: auto 0px;
+      }
+      .footer-subs input[type="text"],
+      .footer-subs input[type="submit"] {
+        border: none;
+        padding: 5px 10px;
+      }
+      .footer-subs input[type="text"] {
+        width: 0;
+        flex-grow: 1;
+      }
+      .footer-subs input[type="submit"] {
+        color: #70f6df;
+        background-color: #3e5293;
+      }
+      .copyright {
+        width: 100%;
+        text-align: center;
+        margin: 100px 0 0 0;
+        padding: 10px 0;
+        background-color: #000;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="https://picsum.photos/100/100?random=1" />
+        </a>
+        <nav class="main-nav">
+          <a href="#">金魚都能懂系列</a>
+          <a href="#">暴力網頁入門系列</a>
+          <a href="#">CSS可樂系列</a>
+          <a href="#">RWD原來醬子系列</a>
+        </nav>
+        <form class="header-search">
+          <input type="search" />
+          <button>clcik</button>
+        </form>
+      </div>
+    </header>
+
+    <div class="banner">
+      <div class="container">
+        <div class="banner-text">
+          <h1>
+            金魚都能懂的
+            <small> 這個網頁畫面怎麼切 </small>
+          </h1>
+          <h2>圖文滿版區塊</h2>
+          <p>
+            這畫面實在很常見，在這種樣板網站可說是設計常客
+            <br />
+            金魚切不出來實在說不過去阿
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-group fish-group">
+      <div class="main-title">
+        <div class="container">
+          <h1>金魚免費課程系列</h1>
+          <div class="text">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              aliquam molestiae alias illo voluptatibus, ratione nesciunt omnis
+              voluptates eaque excepturi. Atque cumque laborum quas doloribus
+              tempora voluptate alias architecto nemo.Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Nam aliquam molestiae alias illo
+              voluptatibus, ratione nesciunt omnis voluptates eaque excepturi.
+              Atque cumque laborum quas doloribus tempora voluptate alias
+              architecto nemo.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="fish">
+        <div class="item">
+          <div class="icon">
+            <i class="fa fa-gavel"></i>
+          </div>
+          <div class="text">
+            <h3>暴力網頁入門</h3>
+            <p>
+              暴力網頁入門是一門強度不低的入門課程，內容彌補了金魚
+              深度不足的地方，但也考驗各位的自主訓練與耐心，只要能
+              扎實地把訓練做好與消化，能力立馬提升。
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <i class="fa fa-thumbs-up"></i>
+          </div>
+          <div class="text">
+            <h3>金魚都懂切版</h3>
+            <p>
+              金魚都懂的這個網頁畫面怎麼切，是 IThome 鐵人賽的主題，
+              主要訴求再簡單快速將一個網頁畫面完成，但也由於時間有限，
+              所以沒有處理RWD部分，留給廣大網友腦補囉。
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <i class="fa fa-bell"></i>
+          </div>
+          <div class="text">
+            <h3>CSScoke</h3>
+            <p>
+              固定每周二晚上再 youtube 平台直播，偶爾會偷懶休息，
+              內容從基礎入門到業界實務應有盡有，從技術到經驗無一不談，
+              還有大師常來聊系列，免費讓你學到大師能力。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-title sec-title">
+        <div class="container">
+          <h2>金魚見證</h2>
+        </div>
+      </div>
+      <div class="studen-msg">
+        <div class="container">
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=1" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂得網頁入門</h2>
+              <p>
+                年度最佳網頁入門教學影片，輕鬆學會網頁製作，
+                原始碼原來如此有趣阿。
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=2" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂得網頁切版</h2>
+              <p>
+                沒想到切版竟然如此簡單，以往的困難迎刃而解， 技巧原來這般單純。
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=3" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂的CSS選取器</h2>
+              <p>CSS選取器原來是這道理阿，其實之前都誤解他了，對不起9523！</p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=4" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂的CSS選取器</h2>
+              <p>CSS選取器原來是這道理阿，其實之前都誤解他了，對不起9523！</p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-group force-group">
+      <div class="main-title">
+        <div class="container">
+          <h1>暴力網頁課程系列</h1>
+          <div class="text">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              aliquam molestiae alias illo voluptatibus, ratione nesciunt omnis
+              voluptates eaque excepturi. Atque cumque laborum quas doloribus
+              tempora voluptate alias architecto nemo.Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Nam aliquam molestiae alias illo
+              voluptatibus, ratione nesciunt omnis voluptates eaque excepturi.
+              Atque cumque laborum quas doloribus tempora voluptate alias
+              architecto nemo.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="force">
+        <div class="item">
+          <img src="https://picsum.photos/300/300?random=1" />
+          <div class="text">
+            <h2>CSS可樂</h2>
+            <p>
+              一個優質的技術型 Youtube 頻道，旨在讓
+              更多網路新手跳坑學習網站開發技術，平日用簡單
+              易懂的教學方式讓新手能跨進網頁設計領域，並
+              開設知名的網路課程「網頁設計暴力入門班」用扎實的
+              原理解析讓新手能學習到深滬的網頁製作技術及知識
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="https://picsum.photos/300/300?random=2" />
+          <div class="text">
+            <h2>Amos</h2>
+            <p>
+              現任 Youtube CSScoke 頻道直播主，屬緣分系直播主，
+              平日不定時會突然發懶不直播（過分！），頻道內分享
+              業界實務技巧，不定時邀請業界大神免費分享實用技巧與經驗，
+              妳若有機會跟到直播的話代表妳我有緣，何不斗內一下支持
+              直播主製作更多優質節目呢。
+            </p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://picsum.photos/300/300?random=3" />
+          <div class="text">
+            <h2>推坑大魔王</h2>
+            <p>
+              不是路不平！而是坑太多！閒暇時看到好東西
+              就會推坑給周遭朋友，不管是好物或是好書甚至是好課，
+              無一不推！看似抽傭很大卻是一毛不取，一個佛系推坑方式，
+              希望能讓周遭朋友用較低的負擔獲得更多技術，並努力轉換成收入，
+              讓所有周遭的朋友們～發大財！
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-title sec-title">
+        <div class="container">
+          <h2>金魚見證</h2>
+        </div>
+      </div>
+      <div class="studen-msg">
+        <div class="container">
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=1" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂得網頁入門</h2>
+              <p>
+                年度最佳網頁入門教學影片，輕鬆學會網頁製作，
+                原始碼原來如此有趣阿。
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=2" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂得網頁切版</h2>
+              <p>
+                沒想到切版竟然如此簡單，以往的困難迎刃而解， 技巧原來這般單純。
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pic">
+              <img src="https://picsum.photos/400/400?random=3" />
+            </div>
+            <div class="text">
+              <h2>金魚都能懂的CSS選取器</h2>
+              <p>CSS選取器原來是這道理阿，其實之前都誤解他了，對不起9523！</p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-footer">
+      <div class="container">
+        <div class="footer-item">
+          <h4>關於暴力課程</h4>
+          <nav>
+            <a href="#">>課程目標</a>
+            <a href="#">>辦學理念</a>
+            <a href="#">>課程宗旨</a>
+          </nav>
+        </div>
+        <div class="footer-item">
+          <h4>課程列表</h4>
+          <nav>
+            <a href="#">>暴力網頁入門班</a>
+            <a href="#">>RWD網頁深入理解</a>
+            <a href="#">>CSS3互動動畫設計</a>
+            <a href="#">>Bootstrap框架實務</a>
+          </nav>
+        </div>
+        <div class="footer-item">
+          <h4>服務項目</h4>
+          <nav>
+            <a href="#">>網站建置顧問</a>
+            <a href="#">>網站設計建置</a>
+            <a href="#">>網站規劃</a>
+            <a href="#">>企業教育訓練</a>
+          </nav>
+        </div>
+        <div class="footer-item footer-subs">
+          <h4>訂閱電子報</h4>
+          <form>
+            <input type="text" name="" />
+            <input type="submit" value="訂閱" />
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        Copyright &copy;2022 金魚都能懂的這個網頁畫面怎麼切
+      </div>
+    </div>
+  </body>
+</html>
