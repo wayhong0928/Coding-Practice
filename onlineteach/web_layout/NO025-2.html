@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>文字排版</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Serif TC", serif;
+      }
+      body {
+        background-color: #000;
+      }
+      .wrap {
+        margin: 100px 0;
+      }
+      .container {
+        width: 1200px;
+        margin: auto;
+        text-align: center;
+      }
+      .container h1 {
+        width: 100%;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        font-size: 90px;
+        color: #a00;
+        margin-bottom: 0.5em;
+      }
+      .container h1::after {
+        content: "";
+        display: block;
+        height: 5px;
+        width: 2em;
+        background-color: #aaa;
+        margin: auto;
+      }
+      .container .text {
+        flex-shrink: 0;
+        box-sizing: border-box;
+        color: #fff;
+      }
+      .container .text p {
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <h1>CSS COKE IS AWESOME</h1>
+        <div class="text">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquam
+            molestiae alias illo voluptatibus, ratione nesciunt omnis voluptates
+            eaque excepturi. Atque cumque laborum quas doloribus tempora
+            voluptate alias architecto nemo.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Nam aliquam molestiae alias illo
+            voluptatibus, ratione nesciunt omnis voluptates eaque excepturi.
+            Atque cumque laborum quas doloribus tempora voluptate alias
+            architecto nemo.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquam
+            molestiae alias illo voluptatibus, ratione nesciunt omnis voluptates
+            eaque excepturi. Atque cumque laborum quas doloribus tempora
+            voluptate alias architecto nemo.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Nam aliquam molestiae alias illo
+            voluptatibus, ratione nesciunt omnis voluptates eaque excepturi.
+            Atque cumque laborum quas doloribus tempora voluptate alias
+            architecto nemo.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquam
+            molestiae alias illo voluptatibus, ratione nesciunt omnis voluptates
+            eaque excepturi. Atque cumque laborum quas doloribus tempora
+            voluptate alias architecto nemo.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Nam aliquam molestiae alias illo
+            voluptatibus, ratione nesciunt omnis voluptates eaque excepturi.
+            Atque cumque laborum quas doloribus tempora voluptate alias
+            architecto nemo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
