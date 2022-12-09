@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sidebars.css">
+  <title>Navbars</title>
+</head>
+<body>
+    <button type="button" class="burger" onclick="toggleSidebar()">
+      <img class="burger-avatar" src="images/menu.png">
+      <span class="burger-icon"></span>
+    </button>
+    <div class="overlay"></div>
+    <aside class="sidebar">
+      <img class="sidebar-avatar" src="images/user.png">
+      <div class="sidebar-username">username</div>
+      <div class="sidebar-role">目前會員階級</div>
+      <nav class="sidebar-menu">
+        <button type="button">
+          <img src="https://picsum.photos/300/200?random=3">
+          <span>Home</span>
+        </button>
+      </nav>
+    </aside>
+    <script>
+      const toggleSidebar = () =>
+        document.body.classList.toggle("open");
+    </script>
+</body>
+</html>

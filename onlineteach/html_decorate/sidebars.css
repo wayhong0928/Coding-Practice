@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', 'Noto Sans', sans-serif;
+}
+.overlay, .sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.overlay {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* 背景過濾 - 切換的模糊效果 */
+  backdrop-filter: blur(3px);
+  transition: 0.5s;
+}
+.sidebar {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: center; 
+  padding: 40px 20px;
+  background-color: #cccccc;
+  filter: blur(10px);
+  /* 設定哪些CSS會被轉場效果影響 */
+  transition-property: filter, visibility, opacity;
+  /* 轉場花費時間 */
+  transition-duration: 0.6s;
+}
+.burger {
+  position: fixed;
+  z-index: 3;
+  top: 20px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.burger-avatar, .burger-icon {
+  width: 30px;
+  height: 30px;
+}
+.burger-avatar {
+  transition: 0.5s;
+}
+.burger-icon {
+  background-image: url("images/user.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.sidebar {
+  display: flex;
+}
+.sidebar-avatar {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+.sidebar-avatar img {
+  display: flex;
+  justify-content: center;
+}
+.sidebar-username {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.96);
+}
+.sidebar-role {
+  margin: 0 0 20px;
+  font-size: 9px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.57);
+}
+.sidebar-menu {
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+.sidebar-menu > button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  line-height: 1;
+  padding: 10px 20px;
+}
+.sidebar-menu > button > img {
+  width: 17px;
+  height: 17px;
+}
+.sidebar-menu > button > span {
+  font-size: 11px;
+  translate: 0 1px;
+}
+
+body.open .burger-avatar {
+  translate: 40px 0;
+  display: none;
+}
+body.open .burger-icon {
+  /* close icon */
+  background-image: url("images/close.png");
+}
+body.open .sidebar{
+  translate: 0 0;
+  opacity: 1;
+  filter: blur(0);
+}
+@media screen and (min-width : 768px) {
+  .burger {
+    display: none;
+  }
+}
+@media screen and (max-width : 768px) {
+  body.open .overlay {
+    opacity: 1;  
+  }
+}
+@media screen and (min-width : 400px) {
+  .sidebar {
+    translate: 100% 0;
+    width: 180px;
+    transition-property: translate;
+    transition-duration: 0.5s;
+  }
+}
