@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Document</title>
+  <style>
+/* 電腦螢幕 1024-1*/
+@media screen and (min-width:1023px) {
+  main, .commodity-wrap {
+    margin: auto;
+  }
+}
+h2 {
+  text-align: center;
+  color: #f00;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 20px 0;
+  letter-spacing: 10px;
+}
+/* commodity */
+.commodity-wrap {
+  max-width: 1500px;
+  /* background-color: rgba(200, 255, 200, 0.5); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+.commodity-item {
+  background-color: #fefefe;
+  width: clamp(200px, 100%, 400px);
+  margin: 10px;
+  border: 3px solid rgba(100, 150, 100, 1);
+  padding: 20px;
+  border-radius: 20px;
+}
+.commodity-item img {
+  width: 100%;
+  border-radius: 20px;
+}
+.commodity-item article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+.commodity-item .price {
+  margin-top: 20px;
+}
+.more-information {
+  display: block;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+.commodity-item:hover article {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+}
+.commodity-item:hover .more-information {
+  opacity: 1;
+  background-color: #fefefe;
+  box-shadow: 0 0 10px 0 rgba(100, 150, 100, 1);
+  padding: 20px 20%;
+  margin-top: -40px;
+  border-radius: 20px;
+  transform: translateY(100px);
+  transition: 0.5s;
+}
+.commodity-item .more-information {
+  text-decoration: none;
+  color: #000;
+}
+.more-information:hover .more-information {
+  background-color: rgba(100, 150, 100, 0.5);
+  color: rgba(100, 150, 100, 1);
+  font-size: 24px;
+}
+  </style>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入icon的JS檔案-->
+  <script
+    src="https://kit.fontawesome.com/8d21a50c85.js"crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+<title>Vegetable Shop</title>
+</head>
+<body>
+    <!-- 熱銷排行-->
+    <section class="commodity-wrap">
+      <!-- 一個item是一個商品 -->
+      <div class="commodity-item hot-sales">
+        <!-- span僅作為css處理用 -->
+        <span></span>
+        <!-- 商品圖片 -->
+        <img src="images/tomato.jpg" />
+        <!-- 商品名稱 -->
+        <a href="#" class="more-information">更多資訊</a>
+        <article>
+          <h3>番茄</h3>
+          <!-- 商品敘述 -->
+          <p>
+            新鮮精選番茄，甜美多汁，富有維生素與膳食纖維
+          </p>
+          <p class="price">售價：$20</p>
+        </article>
+      </div>
+            <!-- 一個item是一個商品 -->
+            <div class="commodity-item hot-sales">
+              <!-- span僅作為css處理用 -->
+              <span></span>
+              <!-- 商品圖片 -->
+              <img src="images/tomato.jpg" />
+              <!-- 商品名稱 -->
+              <a href="#" class="more-information">更多資訊</a>
+              <article>
+                <h3>番茄</h3>
+                <!-- 商品敘述 -->
+                <p>
+                  新鮮精選番茄，甜美多汁，富有維生素與膳食纖維
+                </p>
+                <p class="price">售價：$20</p>
+              </article>
+            </div>
+                  <!-- 一個item是一個商品 -->
+      <div class="commodity-item hot-sales">
+        <!-- span僅作為css處理用 -->
+        <span></span>
+        <!-- 商品圖片 -->
+        <img src="images/tomato.jpg" />
+        <!-- 商品名稱 -->
+        <a href="#" class="more-information">更多資訊</a>
+        <article>
+          <h3>番茄</h3>
+          <!-- 商品敘述 -->
+          <p>
+            新鮮精選番茄，甜美多汁，富有維生素與膳食纖維
+          </p>
+          <p class="price">售價：$20</p>
+        </article>
+      </div>
+    </section>
+
+  <!-- 可編輯區-end -->
+
+  </main>
+</body>
+</html>
+</body>
+</html>
