@@ -1,6 +1,6 @@
 package own;
 
-// java教學手冊16-6頁
+// java課本16_2 簡單的泛型範例
 
 class Member<T> {
 	private T id;
@@ -15,8 +15,8 @@ class Member<T> {
 public class Book_16_2 {
 
 	public static void main(String[] args) {
-		var obj1 = new Member<Integer>(6);
-		var obj2 = new Member<String>("Lily");
+		Member<Integer> obj1 = new Member<Integer>(6);
+		Member<String> obj2 = new Member<String>("Lily");
 		obj1.show();
 		obj2.show();
 	}

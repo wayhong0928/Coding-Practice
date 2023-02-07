@@ -11,7 +11,7 @@ import java.util.*;
 public class HashMap_practice {
 	public static void main(String[] args) {
 		// ½Ò¥»½d¨Ò
-		var hmap = new HashMap<Integer, String>();
+		HashMap<Integer, String> hmap = new HashMap<Integer, String>();
 		hmap.put(94001, "Fiona");
 		hmap.put(94002, "Ariel");
 		hmap.put(94003, "Pyan");

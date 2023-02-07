@@ -5,7 +5,7 @@ import java.util.*;
 public class Queue_practice {
 
 	public static void main(String[] args) {
-		var que = new LinkedList <String>();
+		LinkedList<String> que = new LinkedList <String>();
 		que.offer("A");
 		que.offer("B");
 		que.offer("C");

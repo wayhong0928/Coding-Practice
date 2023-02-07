@@ -5,7 +5,7 @@ import java.util.*;
 public class Stack_practice {
 
 	public static void main(String[] args) {
-		var stk=new Stack <String>();
+		Stack<String> stk=new Stack <String>();
 		stk.push("A");
 		stk.push("B");
 		stk.push("C");

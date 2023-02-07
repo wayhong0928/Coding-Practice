@@ -9,7 +9,7 @@ import java.util.*;
 public class TreeMap_practice {
 	public static void main(String[] args) {
 		int k1 = 94001, k2 = 94003, key;
-		var tmap = new TreeMap<Integer, String>();
+		TreeMap<Integer, String> tmap = new TreeMap<Integer, String>();
 		tmap.put(94001, "Fiona");
 		tmap.put(94002, "Ryan");
 		tmap.put(94003, "Ariel");
