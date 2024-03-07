@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DRY原則</title>
+</head>
+<body>
+  <!-- DRY原則，Don't Repeat Yourself 的簡寫，意思是不要重複你寫過的程式碼 -->
+  <!-- 參考資料：https://www.instagram.com/reel/C3mo4kfyvfI/?igsh=dGFsZGMwOW1hMjBs -->
+
+  <script>
+    // 校驗 title 欄位
+    function validateTitle(title) {
+      if (!title) {
+        return "產品名稱不得空白";
+      }
+      // 如果欄位名稱小於傳入的最小長度
+      if (title.length < 5) {
+        return "產品名稱至少要5個字";
+      }
+      return null; // 如果通過上述判斷，則回傳 null
+    }
+    // 校驗 description 欄位
+    function validateDescription(description) {
+      if (!description) {
+        return "產品描述不得空白";
+      }
+      // 如果欄位名稱小於傳入的最小長度
+      if (description.length < 10) {
+        return "產品描述至少要10個字";
+      }
+      return null; // 如果通過上述判斷，則回傳 null
+    }
+  </script>
+
+  <!-- 以上兩個是邏輯相同的 function ， 可以改寫為以下的樣子 -->
+
+  <script>
+    // 校驗欄位
+    function validateField(fieldName, minLength) {
+      // 如果沒有欄位名稱
+      if (!fieldName) {
+        return `${fieldName} 不得空白`;
+      }
+      // 如果欄位名稱小於傳入的最小長度
+      if (fieldName.length < minLength) {
+        return `${fieldName} 至少要 ${minLength} 個字`;
+      }
+      return null; // 如果通過上述判斷，則回傳 null
+    }
+
+    console.log(validateField("產品名稱", 5));
+    console.log(validateField("產品描述", 10));
+    console.log(validateField("使用者姓名", 2));
+  </script>
+</body>
+</html>
