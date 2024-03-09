@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS - 計數器 counter</title>
+</head>
+<body>
+  <!-- 參考資料：https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Closures -->
+  <h3>實作一個計數器的程式</h3>
+  <script>
+    function createCounter(initialValue = 0) {
+      let count = initialValue;
+
+      // 返回一個 counter 函式，此處用到 closure 概念（閉包）
+      // 因為閉包，內部的 counter 函式，可以記下並獲取外部的 count 變數
+      return function counter() {
+        return count++;
+      };
+    }
+    
+    // 載入初始值後，createCounter 會返回一個 counter 函式
+    const counter = createCounter(1);
+
+    // 當呼叫 counter 函式後，返回的值就會像計數器一樣不斷 + 1
+
+    console.log(counter()); // 1
+    console.log(counter()); // 2
+    console.log(counter()); // 3
+  </script>
+</body>
+</html>

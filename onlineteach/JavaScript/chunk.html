@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> JS - chunk </title>
+</head>
+<body>
+  <!-- 
+    !!'false' ==  !!'true'    // ?
+    !!'false' === !!'true'    // ?
+   -->
+  <script>
+    function chunk (array, size) {
+      const chunkedArray = [];
+
+      for (let i = 0; i < array.length; i += size) {
+        // 透過 slice 每次放 i 位置到 i + size 的子陣列到 chunkedArray 中
+        chunkedArray.push(array.slice(i, i + size));
+      }
+      return chunkedArray
+    }
+    
+    const originalArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const chunkSize = 3;
+    console.log(chunk(originalArray, chunkSize));
+  </script>
+</body>
+</html>
