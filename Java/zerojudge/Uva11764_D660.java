@@ -7,7 +7,7 @@ public class Uva11764_D660 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int t = input.nextInt();
-		int n = 0, w = 0, w1 = 0, h = 0, l = 0; // n = ¦³´X­ÓÀğ¾À w = ¥Ø«eÀğ¾À°ª«× w1 = ¤W¤@­ÓÀğ¾À°ª«× h = °ª l = §C 
+		int n = 0, w = 0, w1 = 0, h = 0, l = 0; // n = æœ‰å¹¾å€‹ç‰†å£ w = ç›®å‰ç‰†å£é«˜åº¦ w1 = ä¸Šä¸€å€‹ç‰†å£é«˜åº¦ h = é«˜ l = ä½ 
 		for( int i = 1; i <= t ; i++ ) {
 			System.out.print("Case " + i + ": ");
 			n = input.nextInt();

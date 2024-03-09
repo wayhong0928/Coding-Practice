@@ -7,15 +7,15 @@ public class Uva10300_C005 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int n = input.nextInt();
-		long ans = 0, f = 0, area = 0, num = 0, rec = 0;   // ¼úª÷Á`¼Æ¡B¹A¤Ò¼Æ¶q¡B¹A³õ­±¿n¡B°Êª«¼Æ¥Ø¡BÀô«Oµ¥¯Å
+		long ans = 0, f = 0, area = 0, num = 0, rec = 0;   // çé‡‘ç¸½æ•¸ã€è¾²å¤«æ•¸é‡ã€è¾²å ´é¢ç©ã€å‹•ç‰©æ•¸ç›®ã€ç’°ä¿ç­‰ç´š
 		while(n > 0) {
-			f = input.nextLong();         // ¹A¤Ò¼Æ¶q
-			ans = 0;                         // ¼úª÷Âk¹s
+			f = input.nextLong();         // è¾²å¤«æ•¸é‡
+			ans = 0;                         // çé‡‘æ­¸é›¶
 			while( f > 0 ) {
-				area = input.nextLong();  // ¹A³õ­±¿n
-				num = input.nextLong();   // °Êª«¼Æ¥Ø
-				rec = input.nextLong();   // Àô«Oµ¥¯Å
-				ans += area * rec;		  // ­±¿n * Àô«O = ¼úª÷
+				area = input.nextLong();  // è¾²å ´é¢ç©
+				num = input.nextLong();   // å‹•ç‰©æ•¸ç›®
+				rec = input.nextLong();   // ç’°ä¿ç­‰ç´š
+				ans += area * rec;		  // é¢ç© * ç’°ä¿ = çé‡‘
 				f--;
 			}
 			System.out.println(ans);

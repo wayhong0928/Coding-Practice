@@ -1,15 +1,8 @@
 package own;
 import java.io.*;
 import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
 import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
 
 class Result {
 
@@ -18,8 +11,8 @@ class Result {
      *
      * The function is expected to return a STRING.
      * The function accepts INTEGER_ARRAY A as parameter.
-     * ¥ı¿é¤Jn = ¦³´X­Ó¼Æ¦r(n = °¸¼Æ)
-     * ¤@¦æ¿é¤J¤@­Ó¼Æ¦r¡C
+     * å…ˆè¼¸å…¥n = æœ‰å¹¾å€‹æ•¸å­—(n = å¶æ•¸)
+     * ä¸€è¡Œè¼¸å…¥ä¸€å€‹æ•¸å­—ã€‚
      */
 
 	public static String plusMult(List<Integer> A) {
