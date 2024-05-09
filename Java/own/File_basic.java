@@ -8,7 +8,7 @@ public class File_basic {
 		char data[] = new char[128];
 		FileReader fr = new FileReader("D:\\wayhong\\Java\\own\\data.txt");
 		int num = fr.read(data);
-		String str = new String(data, 0, num);  // ±N¦r¤¸°}¦CÂà´«¦¨¦r¦ê  ´«¦æ²Å¸¹ = ¨â­Ó¦r¤¸
+		String str = new String(data, 0, num);  // å°‡å­—å…ƒé™£åˆ—è½‰æ›æˆå­—ä¸²  æ›è¡Œç¬¦è™Ÿ = å…©å€‹å­—å…ƒ
 		System.out.println("Characters tead = " + num);
 		System.out.println(str);
 		fr.close();
@@ -16,7 +16,7 @@ public class File_basic {
 		System.out.println("-----write-----");
 		
 		FileWriter fw = new FileWriter("D:\\wayhong\\Java\\own\\data.txt");  
-		// ¦pªG¥[¤Wtrue¥Nªí¸ê®Æªş¥[¦b­ì¥ı¸ê®Æ«á­±¡A¥u¦³ÀÉ®×¸ô®| = ÂĞ¼g
+		// å¦‚æœåŠ ä¸Štrueä»£è¡¨è³‡æ–™é™„åŠ åœ¨åŸå…ˆè³‡æ–™å¾Œé¢ï¼Œåªæœ‰æª”æ¡ˆè·¯å¾‘ = è¦†å¯«
 		str = "12\n24\n46\n68\n80";
 		fw.write(str);
 		fw.close();

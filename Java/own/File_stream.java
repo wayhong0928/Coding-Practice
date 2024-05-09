@@ -6,14 +6,14 @@ public class File_stream {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println("-----File Input Stream-----");
-		FileInputStream fi = new FileInputStream("D:\\wayhong\\Java\\own\\data.txt");
+		FileInputStream fi = new FileInputStream("D:\\github-repo\\\\Coding Practice\\\\Java\\\\own\\\\data.txt");
 		System.out.println("file size = " + fi.available());
-		byte ba[] = new byte[fi.available()]; // «Ø¥ß byte °}¦C
-		fi.read(ba); // ±NÅª¨úªº¤º®e¼g¨ì°}¦C ba ¸Ì
-		System.out.println(new String(ba)); // ¦L¥X°}¦C ba ªº¤º®e
+		byte ba[] = new byte[fi.available()]; // å»ºç«‹ byte é™£åˆ—
+		fi.read(ba); // å°‡è®€å–çš„å…§å®¹å¯«åˆ°é™£åˆ— ba è£¡
+		System.out.println(new String(ba)); // å°å‡ºé™£åˆ— ba çš„å…§å®¹
 		fi.close();
 		
 		System.out.println("-----File Output Stream-----");
-		// ½Ò¥»14-16­¶ ¥Îgif°µ¥Ü½d
+		// èª²æœ¬14-16é  ç”¨gifåšç¤ºç¯„
 	}
 }

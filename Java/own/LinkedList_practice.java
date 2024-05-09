@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class LinkedList_practice {
 	public static void main(String[] args) {
-		// LinkedList ½Ò¥» 16-16
+		// LinkedList èª²æœ¬ 16-16
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		for( int i = 0; i <= 30; i += 10 ) {
 			list.add(i);
@@ -13,17 +13,17 @@ public class LinkedList_practice {
 		list.addLast(200);
 		list.addFirst(300);
 		
-		System.out.println("¤¸¯À­Ó¼Æ¡G " + list.size());
-		System.out.println("LinkedListªº¤¸¯À¡G ");
+		System.out.println("å…ƒç´ å€‹æ•¸ï¼š " + list.size());
+		System.out.println("LinkedListçš„å…ƒç´ ï¼š ");
 		for( int i = 0; i < list.size(); i++ ) {
 			System.out.print(list.get(i) + " ");
 		}
 		
-		System.out.print("\n§R°£³Ì«á¤@­Ó¤¸¯À");
+		System.out.print("\nåˆªé™¤æœ€å¾Œä¸€å€‹å…ƒç´ ");
 		System.out.println(list.removeLast() + "...");
-		System.out.println("²Ä¤@­Ó¤¸¯À¡G" + list.getFirst());
-		System.out.println("³Ì«á¤@­Ó¤¸¯À¡G" + list.getLast());
-		System.out.println("¤¸¯À­È¬°200ªº¯Á¤Þ­È¡G" + list.indexOf(200));
+		System.out.println("ç¬¬ä¸€å€‹å…ƒç´ ï¼š" + list.getFirst());
+		System.out.println("æœ€å¾Œä¸€å€‹å…ƒç´ ï¼š" + list.getLast());
+		System.out.println("å…ƒç´ å€¼ç‚º200çš„ç´¢å¼•å€¼ï¼š" + list.indexOf(200));
 	}
 
 }

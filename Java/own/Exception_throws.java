@@ -1,5 +1,5 @@
 package own;
-// Ω“•ª 13-15
+// ù?ù 13-15
 public class Exception_throws {
 	
 	public static void aaa(int a, int b) throws ArithmeticException {

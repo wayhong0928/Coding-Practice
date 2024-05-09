@@ -1,7 +1,10 @@
 package zerojudge;
 
 import java.util.*;
-// b343: 11518 - Dominos 2
+/*
+  b343: 11518 - Dominos 2
+  https://zerojudge.tw/ShowProblem?problemid=b343
+*/
 public class Uva11518_B343 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);

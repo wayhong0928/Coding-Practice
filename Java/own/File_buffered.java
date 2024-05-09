@@ -6,10 +6,10 @@ public class File_buffered {
 	public static void main(String[] args) throws IOException {
 		System.out.println("-----BufferedReader-----");
 		String str = "";
-		FileReader fr = new FileReader("D:\\wayhong\\Java\\own\\data.txt");
+		FileReader fr = new FileReader("D:\\github-repo\\Coding Practice\\Java\\own\\data.txt");
 		BufferedReader bfr = new BufferedReader(fr);
 		int count = 0;
-		while((str = bfr.readLine()) != null) { // ¨C¦¸Åª¨ú¤@¦æ¡Aª½¨ìEOF
+		while((str = bfr.readLine()) != null) { // æ¯æ¬¡è®€å–ä¸€è¡Œï¼Œç›´åˆ°EOF
 			count++;
 			System.out.println(str);
 		}
@@ -19,13 +19,13 @@ public class File_buffered {
 		
 		System.out.println("-----BufferedWriter-----");
 		
-		FileWriter fw = new FileWriter("D:\\wayhong\\Java\\own\\data.txt");
+		FileWriter fw = new FileWriter("D:\\github-repo\\Coding Practice\\Java\\own\\data.txt");
 		BufferedWriter bfw = new BufferedWriter(fw);
 		for( int i = 0; i <= 5; i++ ) {
-			bfw.write(Double.toString(Math.random())); // ¼g¤J¶Ã¼Æ¨ì½w½Ä°Ï
+			bfw.write(Double.toString(Math.random())); // å¯«å…¥äº‚æ•¸åˆ°ç·©è¡å€
 			bfw.newLine();
 		}
-		bfw.flush();  // ±N½w½Ä°Ï¤ºªº¸ê®Æ¼g¨ìÀÉ®×¸Ì
+		bfw.flush();  // å°‡ç·©è¡å€å…§çš„è³‡æ–™å¯«åˆ°æª”æ¡ˆè£¡
 		bfw.close();
 		fw.close();
 	}

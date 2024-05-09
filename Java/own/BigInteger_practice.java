@@ -14,13 +14,13 @@ public class BigInteger_practice {
 		System.out.println("a / b = " + a.divide(b));
 		System.out.println("a ^ 3 = " + a.pow(3));
 		System.out.println("gcd(a, b) = " + a.gcd(b));
-		// for °j°é¼gªk
+		// for è¿´åœˆå¯«æ³•
 		// https://stackoverflow.com/questions/3024186/java-how-for-loop-work-in-the-case-of-biginteger
 		BigInteger ans = new BigInteger("0");
 		for( BigInteger i = BigInteger.valueOf(1); i.compareTo(a)<=0; i = i.add(BigInteger.valueOf(1)))
 		{
-			//  valueOf(1) i°_©l­È  i.compareto(n)>0 ¥i¥H¬Ý¸Ûi>n   i.compareto(n)<=0 ¥Nªíi <= n
-			//  i.add¡]BigInteger.valueOf(2)¡^ ¥Nªí i+2
+			//  valueOf(1) ièµ·å§‹å€¼  i.compareto(n)>0 å¯ä»¥çœ‹èª i>n   i.compareto(n)<=0 ä»£è¡¨i <= n
+			//  i.addï¼ˆBigInteger.valueOf(2)ï¼‰ ä»£è¡¨ i+2
 			ans = ans.multiply(i);
 		}
 	}

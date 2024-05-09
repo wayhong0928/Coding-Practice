@@ -8,12 +8,12 @@ public class Uva11608_D673 {
 		Scanner input = new Scanner(System.in);
 		int count = 1;
 		while(input.hasNextInt()) {
-			int s = input.nextInt(); // ¦~ªì¦³¦h¤ÖÃD¥Ø
+			int s = input.nextInt(); // å¹´åˆæœ‰å¤šå°‘é¡Œç›®
 			if( s < 0 ) break;
 			
 			System.out.println("Case " + count + ":");
-			int[] a = new int[12]; // ¨C­Ó¤ë¥Í²£ÃD¥Ø¼Æ
-			int[] b = new int[12]; // »İ­nªºÃD¥Ø¼Æ
+			int[] a = new int[12]; // æ¯å€‹æœˆç”Ÿç”¢é¡Œç›®æ•¸
+			int[] b = new int[12]; // éœ€è¦çš„é¡Œç›®æ•¸
 			
 			for(int i = 0 ; i < 12 ; i++ ) {
 				a[i] = input.nextInt();
@@ -32,7 +32,7 @@ public class Uva11608_D673 {
 			count++;
 		}
 		input.close();
-		// WA ¼gªk
+		// WA å¯«æ³•
 		//	if( i == 0) {
 		//		if( s >= b[i] ) {
 		//			System.out.println("No problem! :D");

@@ -6,16 +6,16 @@ public class ArrayList_practice {
 
 	public static void main(String[] args) {
 		/*
-		 * ¯B°Ê¤j¤pªºArray¡A¥i¥HÀH·N§ó§ï¤j¤p¡A¬Olist interface ªº¹ê§@
-		 * URL¡Ghttps://ithelp.ithome.com.tw/articles/10229699
-		 * µ²¦X¤j¼Æ¹Bºâ°Ñ¦ÒUva00495_C121
+		 * æµ®å‹•å¤§å°çš„Arrayï¼Œå¯ä»¥éš¨æ„æ›´æ”¹å¤§å°ï¼Œæ˜¯list interface çš„å¯¦ä½œ
+		 * URLï¼šhttps://ithelp.ithome.com.tw/articles/10229699
+		 * çµåˆå¤§æ•¸é‹ç®—åƒè€ƒUva00495_C121
 		 */
 		ArrayList<Integer> arrL = new ArrayList<Integer>(2);
 		arrL.add(1);
 		arrL.add(2);
 		System.out.println(arrL.get(0));
 		
-		// ½Ò¥»½d¨Ò 16-20
+		// èª²æœ¬ç¯„ä¾‹ 16-20
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		for( int i = 0; i <= 50; i += 10 ) {
 			list.add(i);
@@ -23,13 +23,13 @@ public class ArrayList_practice {
 		list.add(3, 200);
 		list.add(0, 300);
 		list.add(400);
-		System.out.println("¤¸¯À­Ó¼Æ= " + list.size());
-		System.out.println("ArrayListªº¤¸¯À¡G" + list);
-		System.out.println("±N¯Á¤Ş­È1ªº¤¸¯À¥H200¨ú¥N...");
+		System.out.println("å…ƒç´ å€‹æ•¸= " + list.size());
+		System.out.println("ArrayListçš„å…ƒç´ ï¼š" + list);
+		System.out.println("å°‡ç´¢å¼•å€¼1çš„å…ƒç´ ä»¥200å–ä»£...");
 		list.set(1, 200);
-		System.out.println("ArrayListªº¤¸¯À¡G" + list);
-		System.out.println("²Ä¤@­Ó¤¸¯À¬°200ªº¯Á¤Ş­È = " + list.indexOf(200));
-		System.out.println("³Ì«á¤@­Ó¤¸¯À­È¬°200ªº¯Á¤Ş­È = " + list.lastIndexOf(200));
+		System.out.println("ArrayListçš„å…ƒç´ ï¼š" + list);
+		System.out.println("ç¬¬ä¸€å€‹å…ƒç´ ç‚º200çš„ç´¢å¼•å€¼ = " + list.indexOf(200));
+		System.out.println("æœ€å¾Œä¸€å€‹å…ƒç´ å€¼ç‚º200çš„ç´¢å¼•å€¼ = " + list.lastIndexOf(200));
 		// for - each
 		for( int i : list) {
 			System.out.print(i + " ");

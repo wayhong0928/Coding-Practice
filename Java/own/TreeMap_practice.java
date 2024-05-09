@@ -1,8 +1,7 @@
 package own;
 /*
- * ½Ò¥»16-24
- * https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/296071/
- * »Ý­n±Æ§Ç®É¦A¨Ï¥Î
+ * èª²æœ¬16-24
+ * éœ€è¦æŽ’åºæ™‚å†ä½¿ç”¨
  */
 import java.util.*;
 
@@ -14,13 +13,13 @@ public class TreeMap_practice {
 		tmap.put(94002, "Ryan");
 		tmap.put(94003, "Ariel");
 		tmap.put(94004, "Jack");
-		System.out.println("¤¸¯À­Ó¼Æ = " + tmap.size());
-		System.out.println("TreeMapªº¤¸¯À = " + tmap);
+		System.out.println("å…ƒç´ å€‹æ•¸ = " + tmap.size());
+		System.out.println("TreeMapçš„å…ƒç´  = " + tmap);
 		key = tmap.firstKey();
-		System.out.println("§Ì0­Ó¤¸¯À = " + key + ", " + tmap.get(key));
+		System.out.println("å¼Ÿ0å€‹å…ƒç´  = " + key + ", " + tmap.get(key));
 		key = tmap.lastKey();
-		System.out.println("³Ì«á¤@­Ó¤¸¯À = " + key + ", " + tmap.get(key));
-		System.out.println("¤¶©ó" + k1 + "©M" + k2 + "ªºTreemap = " + tmap.subMap(k1, k2)); //¤¶©ók1, k2ªº tmap ª«¥ó
-		System.out.println("¤j©óµ¥©ó" + k2 + "ªºTreeMap = " + tmap.tailMap(k2)); // key>k2ªº tmap ª«¥ó
+		System.out.println("æœ€å¾Œä¸€å€‹å…ƒç´  = " + key + ", " + tmap.get(key));
+		System.out.println("ä»‹æ–¼" + k1 + "å’Œ" + k2 + "çš„Treemap = " + tmap.subMap(k1, k2)); //ä»‹æ–¼k1, k2çš„ tmap ç‰©ä»¶
+		System.out.println("å¤§æ–¼ç­‰æ–¼" + k2 + "çš„TreeMap = " + tmap.tailMap(k2)); // key>k2çš„ tmap ç‰©ä»¶
 	}
 }

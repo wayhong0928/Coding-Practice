@@ -1,8 +1,8 @@
 package own;
 /*
  * https://ithelp.ithome.com.tw/articles/10234424
- * ½Ò¥»16.4
- * ´¶¹M±¡ªp¨Ï¥Î¡]³t«×¸û§Ö¡^
+ * èª²æœ¬16.4
+ * æ™®éæƒ…æ³ä½¿ç”¨ï¼ˆé€Ÿåº¦è¼ƒå¿«ï¼‰
  */
 
 
@@ -10,19 +10,19 @@ import java.util.*;
 
 public class HashMap_practice {
 	public static void main(String[] args) {
-		// ½Ò¥»½d¨Ò
+		// èª²æœ¬ç¯„ä¾‹
 		HashMap<Integer, String> hmap = new HashMap<Integer, String>();
 		hmap.put(94001, "Fiona");
 		hmap.put(94002, "Ariel");
 		hmap.put(94003, "Pyan");
-		System.out.println("¤¸¯À­Ó¼Æ = " + hmap.size());
-		System.out.println("HashMapªº¤¸¯À = " + hmap);
-		System.out.println("HashMap¤¤¬O§_¦³key94002? " + hmap.containsKey(94002));
-		System.out.println("HashMap¤¤¬O§_¦³¹ïÀ³­ÈKevin? " + hmap.containsValue("Kevin"));
+		System.out.println("å…ƒç´ å€‹æ•¸ = " + hmap.size());
+		System.out.println("HashMapçš„å…ƒç´  = " + hmap);
+		System.out.println("HashMapä¸­æ˜¯å¦æœ‰key94002? " + hmap.containsKey(94002));
+		System.out.println("HashMapä¸­æ˜¯å¦æœ‰å°æ‡‰å€¼Kevin? " + hmap.containsValue("Kevin"));
 		hmap.remove(94001);
-		System.out.println("²M°£key94001ªºvalue...");
-		System.out.println("¤¸¯À­Ó¼Æ = " + hmap.size());
-		System.out.println("HashMapªº¤¸¯À = " + hmap);  // ¦]¬°¥ÎÂø´êªí°t¸m©Ò¥H¤£·|«ö·Ókey±Æ§Ç
-		System.out.println("key94003ªºvalue = " + hmap.get(94003));	
+		System.out.println("æ¸…é™¤key94001çš„value...");
+		System.out.println("å…ƒç´ å€‹æ•¸ = " + hmap.size());
+		System.out.println("HashMapçš„å…ƒç´  = " + hmap);  // å› ç‚ºç”¨é›œæ¹Šè¡¨é…ç½®æ‰€ä»¥ä¸æœƒæŒ‰ç…§keyæ’åº
+		System.out.println("key94003çš„value = " + hmap.get(94003));	
 	}
 }

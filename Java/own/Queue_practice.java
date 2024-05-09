@@ -9,17 +9,17 @@ public class Queue_practice {
 		que.offer("A");
 		que.offer("B");
 		que.offer("C");
-		System.out.println("que¡G" + que);
-		System.out.println("que.poll()¡G" + que.poll());
-		System.out.println("que¡G" + que);
+		System.out.println("queï¼š" + que);
+		System.out.println("que.poll()ï¼š" + que.poll());
+		System.out.println("queï¼š" + que);
 		
-		System.out.println("que.peek()¡G" + que.peek());        //±q¶¤¦CÀY³¡¨ú¥X¦ı¤£²¾°£¤¸¯À¡C¦pªG¨ú¥X¥¢±Ñ¡]ªÅªº¡^¦^¶Çnull
+		System.out.println("que.peek()ï¼š" + que.peek());        //å¾éšŠåˆ—é ­éƒ¨å–å‡ºä½†ä¸ç§»é™¤å…ƒç´ ã€‚å¦‚æœå–å‡ºå¤±æ•—ï¼ˆç©ºçš„ï¼‰å›å‚³null
 
-		System.out.println("que.isEmpty()¡G" + que.isEmpty());  //¬OªÅªğ¦^true¡A¤£¬°ªÅ«hªğ¦^false
+		System.out.println("que.isEmpty()ï¼š" + que.isEmpty());  //æ˜¯ç©ºè¿”å›trueï¼Œä¸ç‚ºç©ºå‰‡è¿”å›false
 
-		System.out.println("que.contains(\"A\")¡G" + que.contains("A"));
+		System.out.println("que.contains(\"A\")ï¼š" + que.contains("A"));
 
-		System.out.println("que.size()¡G" + que.size());
+		System.out.println("que.size()ï¼š" + que.size());
 
 	}
 

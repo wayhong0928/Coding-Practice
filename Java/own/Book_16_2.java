@@ -1,6 +1,6 @@
 package own;
 
-// java½Ò¥»16_2 Â²³æªºªx«¬½d¨Ò
+// javaèª²æœ¬16_2 ç°¡å–®çš„æ³›åž‹ç¯„ä¾‹
 
 class Member<T> {
 	private T id;

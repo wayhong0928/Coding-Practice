@@ -9,18 +9,18 @@ public class Stack_practice {
 		stk.push("A");
 		stk.push("B");
 		stk.push("C");
-		System.out.println("stk.pop()¡G" + stk.pop());
-		System.out.println("stk¡G" + stk);
-		System.out.println("stk.peek()¡G" + stk.peek()); // return ­è©ñ¶i¥hªº­È¡]³»ºİ¡^
-		System.out.println("stk¡G" + stk);
-		System.out.println("stk.contains(\"A\")¡G" + stk.contains("A"));
-		System.out.println("stk.get(0)¡G" + stk.get(0));
-		System.out.println("stk.set(1,\"change\")¡G" + stk.set(1,"change")); // key-value ·§©À ²Ä´X¶µ´«¦¨¨ä¥L­È return§ó´««eªº­È
-		System.out.println("stk¡G" + stk);
-		System.out.println("stk.size()¡G" + stk.size());
-		System.out.println("stk.empty()¡G" + stk.empty());  // ¬O§_¬°ªÅ­È  ¦^¶Ç bool «¬ºA
-		System.out.println("stk.toArray()[1]¡G" + stk.toArray()[1]);
-		System.out.println("stk¡G" + stk);
+		System.out.println("stk.pop()ï¼š" + stk.pop());
+		System.out.println("stkï¼š" + stk);
+		System.out.println("stk.peek()ï¼š" + stk.peek()); // return å‰›æ”¾é€²å»çš„å€¼ï¼ˆé ‚ç«¯ï¼‰
+		System.out.println("stkï¼š" + stk);
+		System.out.println("stk.contains(\"A\")ï¼š" + stk.contains("A"));
+		System.out.println("stk.get(0)ï¼š" + stk.get(0));
+		System.out.println("stk.set(1,\"change\")ï¼š" + stk.set(1,"change")); // key-value æ¦‚å¿µ ç¬¬å¹¾é …æ›æˆå…¶ä»–å€¼ returnæ›´æ›å‰çš„å€¼
+		System.out.println("stkï¼š" + stk);
+		System.out.println("stk.size()ï¼š" + stk.size());
+		System.out.println("stk.empty()ï¼š" + stk.empty());  // æ˜¯å¦ç‚ºç©ºå€¼  å›å‚³ bool å‹æ…‹
+		System.out.println("stk.toArray()[1]ï¼š" + stk.toArray()[1]);
+		System.out.println("stkï¼š" + stk);
 	}
 
 }
